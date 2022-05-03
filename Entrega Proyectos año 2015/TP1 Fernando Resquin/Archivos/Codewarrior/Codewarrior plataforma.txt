@@ -1,0 +1,295 @@
+void CinematicaPlataforma(void);
+void P_Cin_Dir(Frac16, Frac16, Frac16, Frac16, Frac16, Frac16*);
+void P_Cin_Inv(Frac16, Frac16, Frac16, Frac16, Frac16, Frac16, Frac16*);
+
+void CinematicaPlataforma(void)
+{
+//Variables para cinemática inversa (Consigna)
+Frac16 R=0;
+Frac16 Wi1=0;
+Frac16 Wd1=FRAC16(0);
+Frac16 Vx1=FRAC16(0);
+Frac16 Vy1=FRAC16(0);
+Frac16 W1=FRAC16(0);
+Frac16 W1p=FRAC16(0);
+Frac16 q1=FRAC16(0);
+Frac16 phi1=FRAC16(0);
+Frac16 qi1=FRAC16(0);
+Frac16 qd1=FRAC16(0);
+Frac16 v1=FRAC16(0);
+
+//Variables para cinemática directa (Actuación)
+Frac16 Wi2=FRAC16(0);
+Frac16 Wd2=FRAC16(0);
+Frac16 Vx2=FRAC16(0);
+Frac16 Vy2=FRAC16(0); 
+Frac16 W2=FRAC16(0);
+Frac16 q2=FRAC16(0);
+Frac16 dt=FRAC16(0);
+Frac16 X2=FRAC16(0);
+Frac16 Y2=FRAC16(0);
+Frac16 v2=FRAC16(0);
+
+//Inicializo la estructura vectorial
+#define static struct Trayect
+{
+int x;
+int y;
+int v;
+unsigned int ind;	
+};
+
+
+
+//Constantes
+#define Rr FRAC16(0.12)
+#define B FRAC16(0.2)
+#define CNT_INI 1
+#define CNT_FIN 1900
+#define CNT_STEP 1
+
+//Inicializo variables generales
+Frac16 dq = FRAC16(0);
+Frac16 dt = FRAC16(1);
+Frac16 q1 = FRAC16(0);
+Frac16 cosq1, senq1;
+unsigned int cnt=0;
+Frac16 time=FRAC16(0);
+
+senq1 = tfr16SinPIx(q1);
+cosq1 = tfr16CosPIx(q1);
+
+for (cnt=CNT_INI;cnt<=CNT_FIN;cnt+=CNT_STEP)
+{
+    //Verdadero valor de W indicado por la consigna
+    if(dq > 0)
+    {
+    W1p=div_s(dq, dt);
+    }
+    else
+    {
+    dq=negate(dq);
+    W1p=div_s(dq, dt);
+    dq=negate(dq);
+    W1p=negate(W1p);	
+    }
+        
+    //Proyecto en x e y la velocidad de movimiento(Setpoint) 
+    Vx1=mult(Trayect.v(cnt), cosq1);
+    Vy1=mult(Trayect.v(cnt), senq1);
+    //Determino el vector de orientación actual y el del sgte punto
+    Vector1_X=cosq1;
+    Vector1_Y=senq1;
+    Vector2_X=sub(Trayect.x(cnt), Trayect.x(cnt-1));
+    Vector2_Y=sub(Trayect.y(cnt), Trayect.y(cnt-1));
+    //Detecto puntos consecutivos con los mismos x y
+    if(Vector2_X ==0 || Vector2_Y ==0)
+    {
+    //Obtengo las velocidades de giro de las ruedas según la Consigna
+    M = P_Cin_Inv(Vx1, Vy1, W1, q1, r, b);    
+    Wi1=M(1,1); 
+    Wd1=M(2,1);
+    //Calculo la distancia entre puntos
+    despl= mfr16Sqrt(add(mult(Vector2_X, Vector2_X), mult(Vector2_Y, Vector2_Y)));
+
+    
+    //Determino el intervalo de tiempo entre puntos
+    dt=despl/Trayect.v(cnt);
+    time = add(time, dt);//Actualizo el tiempo 
+    %Calculo el radio de rotación del ICC
+    R=b*(Wd1 + Wi1)/(Wd1-Wi1);
+    %Calculo el incremento de angulo en la orientación
+    rotac = vrrotvec([Vector1_X Vector1_Y 0],[Vector2_X Vector2_Y 0]);
+    dq=rotac(3)*rotac(4);
+    q1 = add(q1, dq);//Actualizo la orientación de la plataforma
+    //phi es lo mismo que q pero con rango [-pi pi] (Verdadera Orientación)
+    
+    //Calculo las coordenadas articulares en radianes (Odometría)
+    //En el DSP lo saco del encoder
+    qi1=add(qi1, mult(Wi1, dt));
+    qd1=add(qd1, mult(Wd1, dt));
+    
+    //Valor auxiliar de W1 que es W1p desplazado en el tiempo
+    //Sin esto no funciona!
+    W1=div_s(dq, dt);
+    
+    v1=Trayect.v(cnt);//Velocidad de desplazamiento indicado por la Consigna
+    
+    //Llamo a la cinemática directa y obtengo las variables de actuación Vx,
+    //Vy, W.
+    M=P_Cin_Dir(Wi1, Wd1, q1 , r, b);
+    Vx2=M(1,1); 
+    Vy2=M(2,1);
+    W2=M(3,1);
+    %Velocidad de desplazamiento indicado por la Consigna
+    v2=sqrt(Vx2^2 + Vy2^2);
+    %Integrando Vx y Vy obtengo los puntos de la trayectoria real
+    X2=X2 + Vx2*dt;
+    Y2=Y2 + Vy2*dt;
+    }
+    else
+    {
+    printf("Dos puntos coincidentes");//Marco el error
+    }
+    //Vectores temporales para luego plotear
+    Plot_dt(cnt)=dt;%En el algoritmo en C no vá
+    Plot_W2(cnt)=W2;%En el algoritmo en C no vá
+    Plot_X2(cnt)= X2;%En el algoritmo en C no vá
+    Plot_Y2(cnt)= Y2;%En el algoritmo en C no vá
+    Plot_V2(cnt)= v2;%En el algoritmo en C no vá
+    Plot_V1(cnt)= v1;%En el algoritmo en C no vá
+    Plot_Wi1(cnt)=Wi1;%En el algoritmo en C no vá
+    Plot_Wd1(cnt)=Wd1;%En el algoritmo en C no vá
+    Plot_R(cnt)=R;
+    Plot_time(cnt)=time;%En el algoritmo en C no vá
+    Plot_W1(cnt)=W1;%En el algoritmo en C no vá
+    Plot_W1p(cnt)=W1p;%En el algoritmo en C no vá
+    Plot_q1(cnt)=q1;%En el algoritmo en C no vá
+    Plot_phi(cnt)=phi1;%En el algoritmo en C no vá
+    Plot_qi(cnt)=qi1;%En el algoritmo en C no vá
+    Plot_qd(cnt)=qd1;%En el algoritmo en C no vá
+}
+%Grafico la trayectoria y todas las variables que se calculan a partir de la
+%Consigna, en función del tiempo
+figure(1);
+plot(Trayect.x,Trayect.y,'Color','b');
+title('Trayectoria a seguir');
+axis square
+xlabel('Eje X [m]');
+ylabel('Eje Y [m]');
+hold on
+plot(0,0,'Color','g','Marker', '>');
+plot(40,-35,'Color','r','Marker', '>');
+hold off
+figure(2);
+plot(Plot_time,Plot_Wi1*60/(2*pi),'Color','b');
+hold on;
+plot(Plot_time,Plot_Wd1*60/(2*pi),'Color','r');
+hold off
+title('Wi, Wd');
+axis([0 200 -200 600]);
+xlabel('Tiempo [seg]');
+ylabel('[RPM]');
+figure(3);
+plot(Plot_time,Plot_R);
+title('R');
+axis([0 200 -20 20]);
+xlabel('Tiempo [seg]');
+ylabel('Radio de giro [m]');
+figure(4);
+plot(Plot_time,Plot_W1*60/(2*pi));
+title('W');
+axis([0 200 -10 10]);
+xlabel('Tiempo [seg]');
+ylabel('[RPM]');
+figure(5);
+plot(Plot_time,Plot_q1*180/pi);
+hold on;
+plot(Plot_time,Plot_phi*180/pi,'--r');
+hold off
+title('q, phi');
+axis([0 200 -150 500]);
+xlabel('Tiempo [seg]');
+ylabel('Orientación [°]');
+figure(6);
+plot(Plot_time,Plot_qi*2*pi*r);
+hold on;
+plot(Plot_time,Plot_qd*2*pi*r,':r');
+hold off
+title('Di, Dd');
+axis([0 200 -pi 3000]);
+xlabel('Tiempo [seg]');
+ylabel('Odometría Izquierda y Derecha [m]');
+figure(7);
+plot(Plot_time,Trayect.v);
+title('Velocidad de recorrido');
+axis([0 200 0 6]);
+xlabel('Tiempo [seg]');
+ylabel('Velocidad m/s');
+%Luego de presionar la tecla compara las variables del modelo directo con
+%las del inverso
+pause
+close all;%Cierro todas las imágenes previas
+figure(1);
+plot(Trayect.x,Trayect.y,'Color','b', 'LineWidth', 2);
+title('Trayectoria a seguir');
+axis square
+xlabel('Eje X [m]');
+ylabel('Eje Y [m]');
+hold on;
+plot(Plot_X2,Plot_Y2,':r', 'LineWidth', 2);
+plot(0,0,'Color','g','Marker', '>');
+plot(40,-35,'Color','r','Marker', '>');
+hold off
+
+figure(2);
+subplot(3,1,1);
+plot(Plot_time,Plot_V1, 'LineWidth', 2);
+title('Velocidad de recorrido');
+axis([0 200 0 10]);
+xlabel('Tiempo [seg]');
+ylabel('Velocidad m/s');
+hold on;
+plot(Plot_time,Plot_V2,'-.r', 'LineWidth', 2);
+hold off
+line
+subplot(3,1,2);
+plot(Plot_time,Plot_W1p*60/(2*pi), 'LineWidth', 2);
+title('W');
+axis([0 200 -10 10]);
+xlabel('Tiempo [seg]');
+ylabel('[RPM]');
+hold on;
+plot(Plot_time,Plot_W2*60/(2*pi),'-.r', 'LineWidth', 2);
+hold off;
+}*/
+
+
+void P_Cin_Dir(Frac16 Wi, Frac16 Wd, Frac16 qp , Frac16 r, Frac16 b, Frac16* D)
+{
+Frac16 A[3][2];
+Frac16 IN[2];
+Frac16 cosqp, senqp;
+senqp = tfr16SinPIx(qp);
+cosqp = tfr16CosPIx(qp);
+
+A(0, 0) = mult(r, cosqp);
+A(0, 0) = mult(A(0, 0), FRAC16(0.5));
+A(1, 0) = mult(r, sinqp);
+A(1, 0) = mult(A(1, 0), FRAC16(0.5));
+A(2, 0) = mult(MENOS_UNO,r);
+A(2, 0) = div_s(A(2, 0), b);
+A(2, 0) = mult(A(2, 0), FRAC16(0.5));
+A(0, 1) = mult(r, cosqp);
+A(0, 1) = mult(A(0, 1), FRAC16(0.5));
+A(1, 1) = mult(r, sinqp);
+A(1, 1) = mult(A(1, 1), FRAC16(0.5));
+A(2, 1) = mult(r, b);
+A(2, 1) = mult(A(2, 1), FRAC16(0.5));
+IN(0) = Wi; 
+IN(1) = Wd; 
+xfr16Mult((Frac16 *) A, 3,2,(Frac16 *) IN,1,(Frac16 *) D);
+return;
+}
+
+
+void P_Cin_Inv(Frac16 Vx, Frac16 Vy, Frac16 W, Frac16 q, Frac16 r, Frac16 b, Frac16* D)
+{
+Frac16 A[2][3];
+Frac16 IN[3];
+Frac16 cosqp, senqp;
+senqp = tfr16SinPIx(qp);
+cosqp = tfr16CosPIx(qp);
+A(0,0) = div_s(cosqp, r);
+A(0,1) = div_s(sinqp, r);
+A(0,2) = mult(MENOS_UNO,b);
+A(0,2) = div_s(A(0,2), r);
+A(1,0) = div_s(cosqp, r);
+A(1,1) = div_s(sinqp, r);
+A(1,2) = div_s(b, r);
+IN(0) = Vx; 
+IN(1) = Vy; 
+IN(2) = W;
+xfr16Mult((Frac16 *) A, 2,3,(Frac16 *) IN,1,(Frac16 *) D);
+return;
+}

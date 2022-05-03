@@ -1,0 +1,59 @@
+# Link map of F_EntryPoint
+
+
+
+# .interrupt_vectorsboot
+#>00040000          F_vector_addr (linker command file)
+  00040000 00000004 interrupt_vectorsboot.text F_vectboot	(Vectors.c)
+
+# .interrupt_vectors
+  00000000 000000AC interrupt_vectors.text F_vect	(Vectors.c)
+
+# .ApplicationCode
+#>000000AC          F_Pcode_start_addr (linker command file)
+  000000AC 00000055 .text   F_EntryPoint	(Cpu.c)
+  00000101 00000007 .text   FCpu_Interrupt	(Cpu.c)
+  00000108 00000035 .text   FPE_low_level_init	(Cpu.c)
+  0000013D 00000003 .text   Fmain	(TP1.c)
+  00000140 0000005C startup.text Finit_56800_	(56F83x_init.asm)
+  00000140 0000005C startup.text startup.text	(56F83x_init.asm)
+#>0000019C          F_Pcode_end_addr (linker command file)
+
+# .ApplicationData
+#>00000004          F_Xbss_start_addr (linker command file)
+#>00000004          _START_BSS (linker command file)
+#>00000004          _END_BSS (linker command file)
+#>00000000          F_Xbss_length (linker command file)
+#>00000004          _HEAP_ADDR (linker command file)
+#>00000100          _HEAP_SIZE (linker command file)
+#>00000104          _HEAP_END (linker command file)
+#>00000200          _min_stack_size (linker command file)
+#>00000104          _stack_addr (linker command file)
+#>00000304          _stack_end (linker command file)
+#>00000004          F_heap_addr (linker command file)
+#>00000104          F_heap_end (linker command file)
+#>00000104          F_Lstack_addr (linker command file)
+#>00000104          F_StackAddr (linker command file)
+#>00000303          F_StackEndAddr (linker command file)
+#>00000000          F_Ldata_size (linker command file)
+#>00000000          F_Ldata_RAM_addr (linker command file)
+#>00000000          F_Ldata_ROM_addr (linker command file)
+#>00000000          F_xROM_to_xRAM (linker command file)
+#>00000000          F_pROM_to_xRAM (linker command file)
+#>00000004          F_start_bss (linker command file)
+#>00000004          F_end_bss (linker command file)
+#>00000304          __DATA_END (linker command file)
+
+
+# Memory map:
+  v_addr   p_addr   size     name
+  0000F020 0000F020 00000000 .x_Peripherals
+  00040000 00040000 00000004 .p_Interruptsboot
+  00000000 00000000 000000AC .p_Interrupts
+  000000AC 000000AC 000000F0 .p_Code
+  00000001 00000001 00000303 .x_Data
+  00004000 00004000 00004000 .x_internal_ROM
+  0004F800 0004F800 00000800 .p_internal_RAM
+
+# Link start time: Mon Apr 27 19:55:55 2015
+# Link end time: Mon Apr 27 19:55:55 2015

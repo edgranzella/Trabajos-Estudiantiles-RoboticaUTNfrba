@@ -1,0 +1,986 @@
+<PE_PROJECT_SETTINGS_DOCUMENTATION>
+  <PE_product_version v="version 3.00 for Freescale 56800/E family"/>
+  <PE_core_version v="Processor Expert Version 0435"/>
+
+  <CPU_Bean name="Cpu" type="56F8367">
+    <Enabled v="N"/>
+
+    <Properties>
+      <Component_name v="Cpu"/>
+      <CPU_type v="56F8367"/>
+      <group name="Clock settings">
+        <Oscillator_frequency__MHz_ v="8"/>
+      </group>
+      <Initialization_priority v="minimal priority"/>
+      <Temp_sensor v="Disabled"/>
+      <Saturation_mode v="Disabled"/>
+      <boolgroup name="Initialize shadow registers" v="no" />
+      <enumgroup name="Initialize unused I/O pins" v="no initialization">
+      </enumgroup>
+      <group name="Internal peripherals">
+        <group name="SIM module">
+          <Pull_up_resistor_JTAG v="yes"/>
+          <Pull_up_resistor_CTRL v="yes"/>
+          <Pull_up_resistor_PWMA0 v="yes"/>
+          <Pull_up_resistor_PWMB v="yes"/>
+          <Pull_up_resistor_XBOOT v="yes"/>
+          <Pull_up_resistor_RESETB v="yes"/>
+          <Pull_up_resistor_EMI_MODE v="yes"/>
+          <Pull_up_resistor_CAN v="yes"/>
+          <Pull_up_resistor_PWMA1 v="yes"/>
+          <Wait_disable_mode v="Enabled"/>
+          <Stop_disable_mode v="Enabled"/>
+          <OnCE_clock_to_core v="Enabled when core TAP is enabled"/>
+          <CLKO_select v="SYS_CLK"/>
+          <CLKOUT_mode v="Disabled"/>
+        </group>
+        <boolgroup name="Flash security &amp; protection" v="Disabled" />
+        <group name="Peripheral clocks">
+          <PWM_A_peripheral_clock v="Enabled"/>
+          <PWM_B_peripheral_clock v="Enabled"/>
+          <SPI_0_peripheral_clock v="Enabled"/>
+          <SPI_1_peripheral_clock v="Enabled"/>
+          <SCI_0_peripheral_clock v="Enabled"/>
+          <SCI_1_peripheral_clock v="Enabled"/>
+          <TMR_A_peripheral_clock v="Enabled"/>
+          <TMR_B_peripheral_clock v="Enabled"/>
+          <TMR_C_peripheral_clock v="Enabled"/>
+          <TMR_D_peripheral_clock v="Enabled"/>
+          <DEC_0_peripheral_clock v="Enabled"/>
+          <DEC_1_peripheral_clock v="Enabled"/>
+          <CAN_peripheral_clock v="Enabled"/>
+          <ADC_A_peripheral_clock v="Enabled"/>
+          <ADC_B_peripheral_clock v="Enabled"/>
+          <EMI_peripheral_clock v="Enabled"/>
+          <CAN2_peripheral_clock v="Enabled"/>
+        </group>
+      </group>
+      <group name="CPU interrupts">
+        <boolgroup name="Interrupt SW0" v="Disabled" />
+        <boolgroup name="Interrupt SW1" v="Disabled" />
+        <boolgroup name="Interrupt SW2" v="Disabled" />
+        <boolgroup name="Interrupt SW3" v="Disabled" />
+        <boolgroup name="Interrupt LP" v="Disabled" />
+        <boolgroup name="Interrupt PLL" v="Disabled" />
+        <boolgroup name="Interrupt LVI" v="Disabled" />
+        <boolgroup name="Interrupt Illegal Instruction" v="Disabled" />
+        <boolgroup name="Interrupt Misalign Access" v="Disabled" />
+        <boolgroup name="Interrupt HW Stack Overflow" v="Disabled" />
+      </group>
+      <boolgroup name="External bus" v="Enabled">
+        <enumgroup name="Program memory boot" v="Internal">
+        </enumgroup>
+        <Data_memory v="Internal &amp; External"/>
+        <Initialize_OMR_register v="no"/>
+        <list name="Data Bus" v="1">
+          <group name="Data Bus">
+            <list name="Data Bus Width" v="16">
+              <boolgroup name="Data Bus Pin 0" v="Enabled">
+                <Pin v="GPIOF9_D0"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Data Bus Pin 1" v="Enabled">
+                <Pin v="GPIOF10_D1"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Data Bus Pin 2" v="Enabled">
+                <Pin v="GPIOF11_D2"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Data Bus Pin 3" v="Enabled">
+                <Pin v="GPIOF12_D3"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Data Bus Pin 4" v="Enabled">
+                <Pin v="GPIOF13_D4"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Data Bus Pin 5" v="Enabled">
+                <Pin v="GPIOF14_D5"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Data Bus Pin 6" v="Enabled">
+                <Pin v="GPIOF15_D6"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Data Bus Pin 7" v="Enabled">
+                <Pin v="GPIOF0_D7"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Data Bus Pin 8" v="Enabled">
+                <Pin v="GPIOF1_D8"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Data Bus Pin 9" v="Enabled">
+                <Pin v="GPIOF2_D9"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Data Bus Pin 10" v="Enabled">
+                <Pin v="GPIOF3_D10"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Data Bus Pin 11" v="Enabled">
+                <Pin v="GPIOF4_D11"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Data Bus Pin 12" v="Enabled">
+                <Pin v="GPIOF5_D12"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Data Bus Pin 13" v="Enabled">
+                <Pin v="GPIOF6_D13"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Data Bus Pin 14" v="Enabled">
+                <Pin v="GPIOF7_D14"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Data Bus Pin 15" v="Enabled">
+                <Pin v="GPIOF8_D15"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+            </list>
+          </group>
+        </list>
+        <list name="Address Bus" v="1">
+          <group name="Address Bus">
+            <list name="Address Bus Width" v="24">
+              <boolgroup name="Address Bus Pin 0" v="Enabled">
+                <Pin v="GPIOA8_A0"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Address Bus Pin 1" v="Enabled">
+                <Pin v="GPIOA9_A1"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Address Bus Pin 2" v="Enabled">
+                <Pin v="GPIOA10_A2"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Address Bus Pin 3" v="Enabled">
+                <Pin v="GPIOA11_A3"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Address Bus Pin 4" v="Enabled">
+                <Pin v="GPIOA12_A4"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Address Bus Pin 5" v="Enabled">
+                <Pin v="GPIOA13_A5"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Address Bus Pin 6" v="Enabled">
+                <Pin v="GPIOE2_A6"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Address Bus Pin 7" v="Enabled">
+                <Pin v="GPIOE3_A7"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Address Bus Pin 8" v="Enabled">
+                <Pin v="GPIOA0_A8"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Address Bus Pin 9" v="Enabled">
+                <Pin v="GPIOA1_A9"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Address Bus Pin 10" v="Enabled">
+                <Pin v="GPIOA2_A10"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Address Bus Pin 11" v="Enabled">
+                <Pin v="GPIOA3_A11"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Address Bus Pin 12" v="Enabled">
+                <Pin v="GPIOA4_A12"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Address Bus Pin 13" v="Enabled">
+                <Pin v="GPIOA5_A13"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Address Bus Pin 14" v="Enabled">
+                <Pin v="GPIOA6_A14"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Address Bus Pin 15" v="Enabled">
+                <Pin v="GPIOA7_A15"/>
+                <Pin_signal v=""/>
+              </boolgroup>
+              <boolgroup name="Address Bus Pin 16" v="Disabled" />
+              <boolgroup name="Address Bus Pin 17" v="Disabled" />
+              <boolgroup name="Address Bus Pin 18" v="Disabled" />
+              <boolgroup name="Address Bus Pin 19" v="Disabled" />
+              <boolgroup name="Address Bus Pin 20" v="Disabled" />
+              <boolgroup name="Address Bus Pin 21" v="Disabled" />
+              <boolgroup name="Address Bus Pin 22" v="Disabled" />
+              <boolgroup name="Address Bus Pin 23" v="Disabled" />
+            </list>
+          </group>
+        </list>
+        <group name="Chip selects">
+          <boolgroup name="CS0" v="Enabled">
+            <Base_address v="0"/>
+            <Block_size v="128k"/>
+            <Read_wait_states v="1"/>
+            <Upper_Lower_byte_option v="Both Bytes Enable"/>
+            <R_W v="Read/Write"/>
+            <Program_Data_space_select v="PS only / Disable"/>
+            <Write_wait_states v="1"/>
+            <Write_wait_states_setup_delay v="0"/>
+            <Write_wait_states_hold_delay v="0"/>
+            <Read_wait_states_setup_delay v="0"/>
+            <Read_wait_states_hold_delay v="0"/>
+            <Minimal_delay_after_read v="0"/>
+          </boolgroup>
+          <boolgroup name="CS1" v="Enabled">
+            <Base_address v="0"/>
+            <Block_size v="128k"/>
+            <Read_wait_states v="1"/>
+            <Upper_Lower_byte_option v="Lower Byte Enable"/>
+            <R_W v="Read/Write"/>
+            <Program_Data_space_select v="DS only"/>
+            <Write_wait_states v="1"/>
+            <Write_wait_states_setup_delay v="0"/>
+            <Write_wait_states_hold_delay v="0"/>
+            <Read_wait_states_setup_delay v="0"/>
+            <Read_wait_states_hold_delay v="0"/>
+            <Minimal_delay_after_read v="0"/>
+          </boolgroup>
+          <boolgroup name="CS2" v="Disabled" />
+          <boolgroup name="CS3" v="Disabled" />
+          <boolgroup name="CS4" v="Enabled">
+            <Base_address v="0"/>
+            <Block_size v="128k"/>
+            <Read_wait_states v="1"/>
+            <Upper_Lower_byte_option v="Upper Byte Enable"/>
+            <R_W v="Read/Write"/>
+            <Program_Data_space_select v="DS only"/>
+            <Write_wait_states v="1"/>
+            <Write_wait_states_setup_delay v="0"/>
+            <Write_wait_states_hold_delay v="0"/>
+            <Read_wait_states_setup_delay v="0"/>
+            <Read_wait_states_hold_delay v="0"/>
+            <Minimal_delay_after_read v="0"/>
+          </boolgroup>
+          <boolgroup name="CS5" v="Disabled" />
+          <boolgroup name="CS6" v="Disabled" />
+          <boolgroup name="CS7" v="Disabled" />
+        </group>
+        <Base_read_wait_states v="1"/>
+        <Base_write_wait_states v="1"/>
+        <Base_minimal_delay_after_read v="0"/>
+        <Drive v="1"/>
+        <list name="External memory" v="0">
+        </list>
+      </boolgroup>
+      <group name="Enabled speed modes">
+        <boolgroup name="High speed mode" v="Enabled">
+          <System_clock__IP_Bus_ v="60"/>
+          <boolgroup name="PLL clock" v="Enabled">
+            <PLL_clock_frequency v="120"/>
+          </boolgroup>
+        </boolgroup>
+        <boolgroup name="Low speed mode" v="Disabled" />
+        <boolgroup name="Slow speed mode" v="Disabled" />
+      </group>
+    </Properties>
+
+    <Methods>
+      <SetHighSpeed v="don&apos;t generate code"/>
+      <SetLowSpeed v="don&apos;t generate code"/>
+      <SetSlowSpeed v="don&apos;t generate code"/>
+      <GetSpeedMode v="don&apos;t generate code"/>
+      <EnableInt v="generate code"/>
+      <DisableInt v="generate code"/>
+      <GetResetSource v="don&apos;t generate code"/>
+      <SetWaitMode v="generate code"/>
+      <SetStopMode v="generate code"/>
+      <SetDataMode v="generate code"/>
+      <GetBusFreqHz v="don&apos;t generate code"/>
+      <OpenBackDoor v="don&apos;t generate code"/>
+      <InitShadowRegs v="don&apos;t generate code"/>
+      <Delay100US v="don&apos;t generate code"/>
+    </Methods>
+
+    <Events>
+      <Event_module_name v="Events"/>
+      <event name="OnReset" v="don&apos;t generate code" />
+      <event name="OnSwINT0" v="don&apos;t generate code" />
+      <event name="OnSwINT1" v="don&apos;t generate code" />
+      <event name="OnSwINT2" v="don&apos;t generate code" />
+      <event name="OnSwINT3" v="don&apos;t generate code" />
+      <event name="OnSwINTLP" v="don&apos;t generate code" />
+      <event name="OnPLLError" v="don&apos;t generate code" />
+      <event name="OnIllegalOpcode" v="don&apos;t generate code" />
+      <event name="OnMisalignData" v="don&apos;t generate code" />
+      <event name="OnHWStackError" v="don&apos;t generate code" />
+      <event name="OnLVI22" v="don&apos;t generate code" />
+      <event name="OnLVI27" v="don&apos;t generate code" />
+    </Events>
+    <Compiler v="CodeWarrior DSP C Compiler"/>
+
+    <CompilerProperties>
+      <Compiler v="CodeWarrior DSP C Compiler"/>
+      <PESL_support v="no"/>
+      <Unhandled_interrupts v="One handler for all"/>
+      <group name="User initialization">
+        <User_data_declarations>
+        </User_data_declarations>
+        <User_code_before_PE_initialization>
+        </User_code_before_PE_initialization>
+        <User_code_after_PE_initialization>
+        </User_code_after_PE_initialization>
+      </group>
+      <boolgroup name="Generate linker file" v="yes">
+        <Constants_in_xROM v="no"/>
+        <xROM_xRAM_mode v="no"/>
+        <boolgroup name="Serial bootloader support" v="no" />
+        <Stack_size v="512"/>
+        <Heap_size v="256"/>
+        <list name="ROM/RAM Areas" v="3">
+          <group name="MemoryArea0">
+            <boolgroup name="ROM/RAM Area" v="Enabled">
+              <Name v=".p_Interrupts"/>
+              <Address v="0"/>
+              <Size v="172"/>
+              <Qualifier v="RWX"/>
+            </boolgroup>
+          </group>
+          <group name="MemoryArea1">
+            <boolgroup name="ROM/RAM Area" v="Enabled">
+              <Name v=".p_Code"/>
+              <Address v="172"/>
+              <Size v="261972"/>
+              <Qualifier v="RWX"/>
+            </boolgroup>
+          </group>
+          <group name="MemoryArea2">
+            <boolgroup name="ROM/RAM Area" v="Enabled">
+              <Name v=".x_Data"/>
+              <Address v="1"/>
+              <Size v="8191"/>
+              <Qualifier v="RW"/>
+            </boolgroup>
+          </group>
+        </list>
+      </boolgroup>
+      <list name="System paths " v="0">
+      </list>
+      <list name="User paths " v="0">
+      </list>
+      <list name="Libraries" v="0">
+      </list>
+      <list name="User directories" v="0">
+      </list>
+    </CompilerProperties>
+  </CPU_Bean>
+
+  <CPU_Bean name="Cpu" type="56F8367">
+    <Enabled v="Y"/>
+
+    <Properties>
+      <Component_name v="Cpu"/>
+      <CPU_type v="56F8367"/>
+      <group name="Clock settings">
+        <Oscillator_frequency__MHz_ v="8"/>
+      </group>
+      <Initialization_priority v="minimal priority"/>
+      <Temp_sensor v="Disabled"/>
+      <Saturation_mode v="Disabled"/>
+      <boolgroup name="Initialize shadow registers" v="no" />
+      <enumgroup name="Initialize unused I/O pins" v="no initialization">
+      </enumgroup>
+      <group name="Internal peripherals">
+        <group name="SIM module">
+          <Pull_up_resistor_JTAG v="yes"/>
+          <Pull_up_resistor_CTRL v="yes"/>
+          <Pull_up_resistor_PWMA0 v="yes"/>
+          <Pull_up_resistor_PWMB v="yes"/>
+          <Pull_up_resistor_XBOOT v="yes"/>
+          <Pull_up_resistor_RESETB v="yes"/>
+          <Pull_up_resistor_EMI_MODE v="yes"/>
+          <Pull_up_resistor_CAN v="yes"/>
+          <Pull_up_resistor_PWMA1 v="yes"/>
+          <Wait_disable_mode v="Enabled"/>
+          <Stop_disable_mode v="Enabled"/>
+          <OnCE_clock_to_core v="Enabled when core TAP is enabled"/>
+          <CLKO_select v="SYS_CLK"/>
+          <CLKOUT_mode v="Disabled"/>
+        </group>
+        <boolgroup name="Flash security &amp; protection" v="Disabled" />
+        <group name="Peripheral clocks">
+          <PWM_A_peripheral_clock v="Enabled"/>
+          <PWM_B_peripheral_clock v="Enabled"/>
+          <SPI_0_peripheral_clock v="Enabled"/>
+          <SPI_1_peripheral_clock v="Enabled"/>
+          <SCI_0_peripheral_clock v="Enabled"/>
+          <SCI_1_peripheral_clock v="Enabled"/>
+          <TMR_A_peripheral_clock v="Enabled"/>
+          <TMR_B_peripheral_clock v="Enabled"/>
+          <TMR_C_peripheral_clock v="Enabled"/>
+          <TMR_D_peripheral_clock v="Enabled"/>
+          <DEC_0_peripheral_clock v="Enabled"/>
+          <DEC_1_peripheral_clock v="Enabled"/>
+          <CAN_peripheral_clock v="Enabled"/>
+          <ADC_A_peripheral_clock v="Enabled"/>
+          <ADC_B_peripheral_clock v="Enabled"/>
+          <EMI_peripheral_clock v="Enabled"/>
+          <CAN2_peripheral_clock v="Enabled"/>
+        </group>
+      </group>
+      <group name="CPU interrupts">
+        <boolgroup name="Interrupt SW0" v="Disabled" />
+        <boolgroup name="Interrupt SW1" v="Disabled" />
+        <boolgroup name="Interrupt SW2" v="Disabled" />
+        <boolgroup name="Interrupt SW3" v="Disabled" />
+        <boolgroup name="Interrupt LP" v="Disabled" />
+        <boolgroup name="Interrupt PLL" v="Disabled" />
+        <boolgroup name="Interrupt LVI" v="Disabled" />
+        <boolgroup name="Interrupt Illegal Instruction" v="Disabled" />
+        <boolgroup name="Interrupt Misalign Access" v="Disabled" />
+        <boolgroup name="Interrupt HW Stack Overflow" v="Disabled" />
+      </group>
+      <boolgroup name="External bus" v="Disabled" />
+      <group name="Enabled speed modes">
+        <boolgroup name="High speed mode" v="Enabled">
+          <System_clock__IP_Bus_ v="60"/>
+          <boolgroup name="PLL clock" v="Enabled">
+            <PLL_clock_frequency v="120"/>
+          </boolgroup>
+        </boolgroup>
+        <boolgroup name="Low speed mode" v="Disabled" />
+        <boolgroup name="Slow speed mode" v="Disabled" />
+      </group>
+    </Properties>
+
+    <Methods>
+      <SetHighSpeed v="don&apos;t generate code"/>
+      <SetLowSpeed v="don&apos;t generate code"/>
+      <SetSlowSpeed v="don&apos;t generate code"/>
+      <GetSpeedMode v="don&apos;t generate code"/>
+      <EnableInt v="generate code"/>
+      <DisableInt v="generate code"/>
+      <GetResetSource v="don&apos;t generate code"/>
+      <SetWaitMode v="generate code"/>
+      <SetStopMode v="generate code"/>
+      <SetDataMode v="generate code"/>
+      <GetBusFreqHz v="don&apos;t generate code"/>
+      <OpenBackDoor v="don&apos;t generate code"/>
+      <InitShadowRegs v="don&apos;t generate code"/>
+      <Delay100US v="don&apos;t generate code"/>
+    </Methods>
+
+    <Events>
+      <Event_module_name v="Events"/>
+      <event name="OnReset" v="don&apos;t generate code" />
+      <event name="OnSwINT0" v="don&apos;t generate code" />
+      <event name="OnSwINT1" v="don&apos;t generate code" />
+      <event name="OnSwINT2" v="don&apos;t generate code" />
+      <event name="OnSwINT3" v="don&apos;t generate code" />
+      <event name="OnSwINTLP" v="don&apos;t generate code" />
+      <event name="OnPLLError" v="don&apos;t generate code" />
+      <event name="OnIllegalOpcode" v="don&apos;t generate code" />
+      <event name="OnMisalignData" v="don&apos;t generate code" />
+      <event name="OnHWStackError" v="don&apos;t generate code" />
+      <event name="OnLVI22" v="don&apos;t generate code" />
+      <event name="OnLVI27" v="don&apos;t generate code" />
+    </Events>
+    <Compiler v="CodeWarrior DSP C Compiler"/>
+
+    <CompilerProperties>
+      <Compiler v="CodeWarrior DSP C Compiler"/>
+      <PESL_support v="no"/>
+      <Unhandled_interrupts v="One handler for all"/>
+      <group name="User initialization">
+        <User_data_declarations>
+        </User_data_declarations>
+        <User_code_before_PE_initialization>
+        </User_code_before_PE_initialization>
+        <User_code_after_PE_initialization>
+        </User_code_after_PE_initialization>
+      </group>
+      <boolgroup name="Generate linker file" v="yes">
+        <Constants_in_xROM v="yes"/>
+        <xROM_xRAM_mode v="no"/>
+        <pROM_xRAM_mode v="yes"/>
+        <boolgroup name="Serial bootloader support" v="no" />
+        <Stack_size v="512"/>
+        <Heap_size v="256"/>
+        <list name="ROM/RAM Areas" v="3">
+          <group name="MemoryArea0">
+            <boolgroup name="ROM/RAM Area" v="Enabled">
+              <Name v=".p_Interrupts"/>
+              <Address v="0"/>
+              <Size v="172"/>
+              <Qualifier v="RWX"/>
+            </boolgroup>
+          </group>
+          <group name="MemoryArea1">
+            <boolgroup name="ROM/RAM Area" v="Enabled">
+              <Name v=".p_Code"/>
+              <Address v="172"/>
+              <Size v="261972"/>
+              <Qualifier v="RWX"/>
+            </boolgroup>
+          </group>
+          <group name="MemoryArea2">
+            <boolgroup name="ROM/RAM Area" v="Enabled">
+              <Name v=".x_Data"/>
+              <Address v="1"/>
+              <Size v="8191"/>
+              <Qualifier v="RW"/>
+            </boolgroup>
+          </group>
+        </list>
+      </boolgroup>
+      <list name="System paths " v="0">
+      </list>
+      <list name="User paths " v="0">
+      </list>
+      <list name="Libraries" v="0">
+      </list>
+      <list name="User directories" v="0">
+      </list>
+    </CompilerProperties>
+  </CPU_Bean>
+
+  <CPU_Bean name="Cpu" type="56F8367">
+    <Enabled v="N"/>
+
+    <Properties>
+      <Component_name v="Cpu"/>
+      <CPU_type v="56F8367"/>
+      <group name="Clock settings">
+        <Oscillator_frequency__MHz_ v="8"/>
+      </group>
+      <Initialization_priority v="minimal priority"/>
+      <Temp_sensor v="Disabled"/>
+      <Saturation_mode v="Disabled"/>
+      <boolgroup name="Initialize shadow registers" v="no" />
+      <enumgroup name="Initialize unused I/O pins" v="no initialization">
+      </enumgroup>
+      <group name="Internal peripherals">
+        <group name="SIM module">
+          <Pull_up_resistor_JTAG v="yes"/>
+          <Pull_up_resistor_CTRL v="yes"/>
+          <Pull_up_resistor_PWMA0 v="yes"/>
+          <Pull_up_resistor_PWMB v="yes"/>
+          <Pull_up_resistor_XBOOT v="yes"/>
+          <Pull_up_resistor_RESETB v="yes"/>
+          <Pull_up_resistor_EMI_MODE v="yes"/>
+          <Pull_up_resistor_CAN v="yes"/>
+          <Pull_up_resistor_PWMA1 v="yes"/>
+          <Wait_disable_mode v="Enabled"/>
+          <Stop_disable_mode v="Enabled"/>
+          <OnCE_clock_to_core v="Enabled when core TAP is enabled"/>
+          <CLKO_select v="SYS_CLK"/>
+          <CLKOUT_mode v="Disabled"/>
+        </group>
+        <boolgroup name="Flash security &amp; protection" v="Disabled" />
+        <group name="Peripheral clocks">
+          <PWM_A_peripheral_clock v="Enabled"/>
+          <PWM_B_peripheral_clock v="Enabled"/>
+          <SPI_0_peripheral_clock v="Enabled"/>
+          <SPI_1_peripheral_clock v="Enabled"/>
+          <SCI_0_peripheral_clock v="Enabled"/>
+          <SCI_1_peripheral_clock v="Enabled"/>
+          <TMR_A_peripheral_clock v="Enabled"/>
+          <TMR_B_peripheral_clock v="Enabled"/>
+          <TMR_C_peripheral_clock v="Enabled"/>
+          <TMR_D_peripheral_clock v="Enabled"/>
+          <DEC_0_peripheral_clock v="Enabled"/>
+          <DEC_1_peripheral_clock v="Enabled"/>
+          <CAN_peripheral_clock v="Enabled"/>
+          <ADC_A_peripheral_clock v="Enabled"/>
+          <ADC_B_peripheral_clock v="Enabled"/>
+          <EMI_peripheral_clock v="Enabled"/>
+          <CAN2_peripheral_clock v="Enabled"/>
+        </group>
+      </group>
+      <group name="CPU interrupts">
+        <boolgroup name="Interrupt SW0" v="Disabled" />
+        <boolgroup name="Interrupt SW1" v="Disabled" />
+        <boolgroup name="Interrupt SW2" v="Disabled" />
+        <boolgroup name="Interrupt SW3" v="Disabled" />
+        <boolgroup name="Interrupt LP" v="Disabled" />
+        <boolgroup name="Interrupt PLL" v="Disabled" />
+        <boolgroup name="Interrupt LVI" v="Disabled" />
+        <boolgroup name="Interrupt Illegal Instruction" v="Disabled" />
+        <boolgroup name="Interrupt Misalign Access" v="Disabled" />
+        <boolgroup name="Interrupt HW Stack Overflow" v="Disabled" />
+      </group>
+      <boolgroup name="External bus" v="Disabled" />
+      <group name="Enabled speed modes">
+        <boolgroup name="High speed mode" v="Enabled">
+          <System_clock__IP_Bus_ v="60"/>
+          <boolgroup name="PLL clock" v="Enabled">
+            <PLL_clock_frequency v="120"/>
+          </boolgroup>
+        </boolgroup>
+        <boolgroup name="Low speed mode" v="Disabled" />
+        <boolgroup name="Slow speed mode" v="Disabled" />
+      </group>
+    </Properties>
+
+    <Methods>
+      <SetHighSpeed v="don&apos;t generate code"/>
+      <SetLowSpeed v="don&apos;t generate code"/>
+      <SetSlowSpeed v="don&apos;t generate code"/>
+      <GetSpeedMode v="don&apos;t generate code"/>
+      <EnableInt v="generate code"/>
+      <DisableInt v="generate code"/>
+      <GetResetSource v="don&apos;t generate code"/>
+      <SetWaitMode v="generate code"/>
+      <SetStopMode v="generate code"/>
+      <SetDataMode v="generate code"/>
+      <GetBusFreqHz v="don&apos;t generate code"/>
+      <OpenBackDoor v="don&apos;t generate code"/>
+      <InitShadowRegs v="don&apos;t generate code"/>
+      <Delay100US v="don&apos;t generate code"/>
+    </Methods>
+
+    <Events>
+      <Event_module_name v="Events"/>
+      <event name="OnReset" v="don&apos;t generate code" />
+      <event name="OnSwINT0" v="don&apos;t generate code" />
+      <event name="OnSwINT1" v="don&apos;t generate code" />
+      <event name="OnSwINT2" v="don&apos;t generate code" />
+      <event name="OnSwINT3" v="don&apos;t generate code" />
+      <event name="OnSwINTLP" v="don&apos;t generate code" />
+      <event name="OnPLLError" v="don&apos;t generate code" />
+      <event name="OnIllegalOpcode" v="don&apos;t generate code" />
+      <event name="OnMisalignData" v="don&apos;t generate code" />
+      <event name="OnHWStackError" v="don&apos;t generate code" />
+      <event name="OnLVI22" v="don&apos;t generate code" />
+      <event name="OnLVI27" v="don&apos;t generate code" />
+    </Events>
+    <Compiler v="CodeWarrior DSP C Compiler"/>
+
+    <CompilerProperties>
+      <Compiler v="CodeWarrior DSP C Compiler"/>
+      <PESL_support v="no"/>
+      <Unhandled_interrupts v="One handler for all"/>
+      <group name="User initialization">
+        <User_data_declarations>
+        </User_data_declarations>
+        <User_code_before_PE_initialization>
+        </User_code_before_PE_initialization>
+        <User_code_after_PE_initialization>
+        </User_code_after_PE_initialization>
+      </group>
+      <boolgroup name="Generate linker file" v="yes">
+        <Constants_in_xROM v="yes"/>
+        <xROM_xRAM_mode v="yes"/>
+        <boolgroup name="Serial bootloader support" v="no" />
+        <Stack_size v="512"/>
+        <Heap_size v="256"/>
+        <list name="ROM/RAM Areas" v="3">
+          <group name="MemoryArea0">
+            <boolgroup name="ROM/RAM Area" v="Enabled">
+              <Name v=".p_Interrupts"/>
+              <Address v="0"/>
+              <Size v="172"/>
+              <Qualifier v="RWX"/>
+            </boolgroup>
+          </group>
+          <group name="MemoryArea1">
+            <boolgroup name="ROM/RAM Area" v="Enabled">
+              <Name v=".p_Code"/>
+              <Address v="172"/>
+              <Size v="261972"/>
+              <Qualifier v="RWX"/>
+            </boolgroup>
+          </group>
+          <group name="MemoryArea2">
+            <boolgroup name="ROM/RAM Area" v="Enabled">
+              <Name v=".x_Data"/>
+              <Address v="1"/>
+              <Size v="8191"/>
+              <Qualifier v="RW"/>
+            </boolgroup>
+          </group>
+        </list>
+      </boolgroup>
+      <list name="System paths " v="0">
+      </list>
+      <list name="User paths " v="0">
+      </list>
+      <list name="Libraries" v="0">
+      </list>
+      <list name="User directories" v="0">
+      </list>
+    </CompilerProperties>
+  </CPU_Bean>
+
+  <Bean name="TFR1" type="DSP_Func_TFR">
+    <Enabled v="Y"/>
+
+    <Properties>
+      <Component_name v="TFR1"/>
+      <Use_Assembler_Files v="yes"/>
+      <Basic_Fractional_Math_Library v="MFR1"/>
+      <boolgroup name="Memory management" v="Enabled">
+        <Memory_management_library v="MEM1"/>
+      </boolgroup>
+    </Properties>
+
+    <Methods>
+      <tfr16SinPIx v="generate code"/>
+      <tfr16SinPIxLUT v="generate code"/>
+      <tfr16CosPIx v="generate code"/>
+      <tfr16SinPIxLUTCreate v="generate code"/>
+      <tfr16SinPIxLUTDestroy v="generate code"/>
+      <tfr16SinPIxLUTInit v="generate code"/>
+      <tfr16CosPIxLUT v="generate code"/>
+      <tfr16CosPIxLUTCreate v="generate code"/>
+      <tfr16CosPIxLUTDestroy v="generate code"/>
+      <tfr16CosPIxLUTInit v="generate code"/>
+      <tfr16AsinOverPI v="generate code"/>
+      <tfr16AcosOverPI v="generate code"/>
+      <tfr16AtanOverPI v="generate code"/>
+      <tfr16Atan2OverPI v="generate code"/>
+      <tfr16SineWaveGenIDTL v="generate code"/>
+      <tfr16SineWaveGenIDTLDestroy v="generate code"/>
+      <tfr16SineWaveGenRDTL v="generate code"/>
+      <tfr16SineWaveGenRDTLDestroy v="generate code"/>
+      <tfr16SineWaveGenRDITL v="generate code"/>
+      <tfr16SineWaveGenRDITLDestroy v="generate code"/>
+      <tfr16SineWaveGenRDITLQ v="generate code"/>
+      <tfr16SineWaveGenRDITLQDestroy v="generate code"/>
+      <tfr16SineWaveGenPAM v="generate code"/>
+      <tfr16SineWaveGenPAMDestroy v="generate code"/>
+      <tfr16SineWaveGenDOM v="generate code"/>
+      <tfr16SineWaveGenDOMDestroy v="generate code"/>
+      <tfr16SineWaveGenIDTLCreate v="generate code"/>
+      <tfr16SineWaveGenIDTLInit v="generate code"/>
+      <tfr16SineWaveGenRDTLCreate v="generate code"/>
+      <tfr16SineWaveGenRDTLInit v="generate code"/>
+      <tfr16SineWaveGenRDITLCreate v="generate code"/>
+      <tfr16SineWaveGenRDITLInit v="generate code"/>
+      <tfr16SineWaveGenRDITLQCreate v="generate code"/>
+      <tfr16SineWaveGenRDITLQInit v="generate code"/>
+      <tfr16SineWaveGenPAMCreate v="generate code"/>
+      <tfr16SineWaveGenPAMInit v="generate code"/>
+      <tfr16SineWaveGenDOMCreate v="generate code"/>
+      <tfr16SineWaveGenDOMInit v="generate code"/>
+      <tfr16WaveGenRDITLQ v="generate code"/>
+      <tfr16WaveGenRDITLQCreate v="generate code"/>
+      <tfr16WaveGenRDITLQDestroy v="generate code"/>
+      <tfr16WaveGenRDITLQInit v="generate code"/>
+    </Methods>
+
+    <Events>
+    </Events>
+  </Bean>
+
+  <Bean name="MFR1" type="DSP_Func_MFR">
+    <Enabled v="Y"/>
+
+    <Properties>
+      <Component_name v="MFR1"/>
+      <Use_Assembler_Files v="yes"/>
+      <Saturation_mode v="Disabled"/>
+    </Properties>
+
+    <Methods>
+      <abs_s v="generate code"/>
+      <add v="generate code"/>
+      <div_s v="generate code"/>
+      <mac_r v="generate code"/>
+      <msu_r v="generate code"/>
+      <mult v="generate code"/>
+      <mult_r v="generate code"/>
+      <negate v="generate code"/>
+      <round v="generate code"/>
+      <shl v="generate code"/>
+      <shr v="generate code"/>
+      <shr_r v="generate code"/>
+      <sub v="generate code"/>
+      <L_abs v="generate code"/>
+      <L_add v="generate code"/>
+      <div_ls v="generate code"/>
+      <L_mac v="generate code"/>
+      <L_msu v="generate code"/>
+      <L_mult v="generate code"/>
+      <L_mult_ls v="generate code"/>
+      <L_negate v="generate code"/>
+      <L_shl v="generate code"/>
+      <L_shr v="generate code"/>
+      <L_shr_r v="generate code"/>
+      <L_deposit_h v="generate code"/>
+      <L_deposit_l v="generate code"/>
+      <L_sub v="generate code"/>
+      <extract_h v="generate code"/>
+      <extract_l v="generate code"/>
+      <norm_s v="generate code"/>
+      <norm_l v="generate code"/>
+      <mfr16Rand v="generate code"/>
+      <mfr16SetRandSeed v="generate code"/>
+      <mfr16Sqrt v="generate code"/>
+      <mfr32Sqrt v="generate code"/>
+    </Methods>
+
+    <Events>
+    </Events>
+  </Bean>
+
+  <Bean name="MEM1" type="DSP_MEM">
+    <Enabled v="Y"/>
+
+    <Properties>
+      <Component_name v="MEM1"/>
+      <Internal_dynamic_memory_size_in_bytes v="0"/>
+      <External_dynamic_memory_size_in_bytes v="0"/>
+      <list name="ROM/RAM Areas" v="3">
+        <group name="MemoryArea0">
+          <boolgroup name="ROM/RAM Area" v="Enabled">
+            <Name v=".p_Interrupts"/>
+            <Address v="0"/>
+            <Size v="172"/>
+            <Qualifier v="RWX"/>
+          </boolgroup>
+        </group>
+        <group name="MemoryArea1">
+          <boolgroup name="ROM/RAM Area" v="Enabled">
+            <Name v=".p_Code"/>
+            <Address v="172"/>
+            <Size v="261972"/>
+            <Qualifier v="RWX"/>
+          </boolgroup>
+        </group>
+        <group name="MemoryArea2">
+          <boolgroup name="ROM/RAM Area" v="Enabled">
+            <Name v=".x_Data"/>
+            <Address v="1"/>
+            <Size v="8191"/>
+            <Qualifier v="RW"/>
+          </boolgroup>
+        </group>
+      </list>
+    </Properties>
+
+    <Methods>
+      <memCallocEM v="generate code"/>
+      <memCallocIM v="generate code"/>
+      <memFreeEM v="generate code"/>
+      <memFreeIM v="generate code"/>
+      <memIsAligned v="generate code"/>
+      <memIsEM v="generate code"/>
+      <memIsIM v="generate code"/>
+      <memMallocAlignedEM v="generate code"/>
+      <memMallocAlignedIM v="generate code"/>
+      <memMallocEM v="generate code"/>
+      <memMallocIM v="generate code"/>
+      <memReallocEM v="generate code"/>
+      <memReallocIM v="generate code"/>
+      <memMemcpy v="generate code"/>
+      <memMemset v="generate code"/>
+      <memMemsetP v="generate code"/>
+      <memCopyPtoX v="generate code"/>
+      <memCopyXtoP v="generate code"/>
+      <memCopyPtoP v="generate code"/>
+      <memReadP16 v="generate code"/>
+      <memReadP32 v="generate code"/>
+      <memWriteP16 v="generate code"/>
+      <memWriteP32 v="generate code"/>
+    </Methods>
+
+    <Events>
+    </Events>
+  </Bean>
+
+  <Bean name="XFR1" type="DSP_Func_XFR">
+    <Enabled v="Y"/>
+
+    <Properties>
+      <Component_name v="XFR1"/>
+      <Array_Library v="AFR1"/>
+    </Properties>
+
+    <Methods>
+      <xfr16Add v="generate code"/>
+      <xfr16Sub v="generate code"/>
+      <xfr16Mult v="generate code"/>
+      <xfr16Equal v="generate code"/>
+      <xfr16Trans v="generate code"/>
+      <xfr16Inv v="generate code"/>
+      <xfr16Det v="generate code"/>
+    </Methods>
+
+    <Events>
+    </Events>
+  </Bean>
+
+  <Bean name="AFR1" type="DSP_Func_AFR">
+    <Enabled v="Y"/>
+
+    <Properties>
+      <Component_name v="AFR1"/>
+      <Use_Assembler_Files v="yes"/>
+      <Basic_Fractional_Math_Library v="MFR1"/>
+    </Properties>
+
+    <Methods>
+      <afr16Abs v="generate code"/>
+      <afr16Add v="generate code"/>
+      <afr16Div v="generate code"/>
+      <afr16Equal v="generate code"/>
+      <afr16Mac_r v="generate code"/>
+      <afr16Max v="generate code"/>
+      <afr16Msu_r v="generate code"/>
+      <afr16Min v="generate code"/>
+      <afr16Mult v="generate code"/>
+      <afr16Mult_r v="generate code"/>
+      <afr16Negate v="generate code"/>
+      <afr16Rand v="generate code"/>
+      <afr16Sqrt v="generate code"/>
+      <afr16Sub v="generate code"/>
+      <afr32Abs v="generate code"/>
+      <afr32Add v="generate code"/>
+      <afr32Div v="generate code"/>
+      <afr32Equal v="generate code"/>
+      <afr32Mac v="generate code"/>
+      <afr32Mac_r v="generate code"/>
+      <afr32Max v="generate code"/>
+      <afr32Min v="generate code"/>
+      <afr32Msu v="generate code"/>
+      <afr32Msu_r v="generate code"/>
+      <afr32Mult v="generate code"/>
+      <afr32Negate v="generate code"/>
+      <afr32Mult_ls v="generate code"/>
+      <afr32Round v="generate code"/>
+      <afr32Sqrt v="generate code"/>
+      <afr32Sub v="generate code"/>
+    </Methods>
+
+    <Events>
+    </Events>
+  </Bean>
+
+  <Bean name="VFR1" type="DSP_Func_VFR">
+    <Enabled v="Y"/>
+
+    <Properties>
+      <Component_name v="VFR1"/>
+      <Use_Assembler_Files v="yes"/>
+      <Array_Library v="AFR1"/>
+    </Properties>
+
+    <Methods>
+      <vfr16Add v="generate code"/>
+      <vfr16DotProd v="generate code"/>
+      <vfr16Equal v="generate code"/>
+      <vfr16Length v="generate code"/>
+      <vfr16Mult v="generate code"/>
+      <vfr16Scale v="generate code"/>
+      <vfr16Sub v="generate code"/>
+    </Methods>
+
+    <Events>
+    </Events>
+  </Bean>
+
+</PE_PROJECT_SETTINGS_DOCUMENTATION>
