@@ -1,0 +1,5 @@
+El informe es el archivo "InformeTP1.pdf".
+
+El archivo "MatrizTransformacion.m" ejecuta los espacios de trabajo utilizados para dicho informe.
+
+Dentro de la carpeta "hexapod" está el programa utilizado para la simulación de la marcha. Para ejecutarlo debe ejecutarse el script "hexapod.m".
