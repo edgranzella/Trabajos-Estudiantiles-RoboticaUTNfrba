@@ -1,0 +1,5 @@
+function [Vx ; Vy ; W] = P_Cin_Dir[Wi Wd1 q1]
+A=[(Wd1*r*cos(q1))/2 + (Wi1*r*cos(q1))/2 ; (Wd1*r*sin(q1))/2 + (Wi1*r*sin(q1))/2 ; (Wd1*r)/(2*b) - (Wi1*r)/(2*b)];
+[Vx1 ; Vy1 ; W1] = A*[[Vi1 ; Vd1];                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+
+    

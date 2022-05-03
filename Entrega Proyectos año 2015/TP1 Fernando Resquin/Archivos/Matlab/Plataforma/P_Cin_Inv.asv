@@ -1,0 +1,6 @@
+function D = P_Cin_Inv(Vx, Vy, W, q)
+B=[(Vx*cos(q2))/r + (Vy*sin(q2))/r - (W*b)/r ; (Vx*cos(q))/r + (Vy*sin(q))/r + (W*b)/r];
+D = B*[[Vx ; Vy ; W];
+    
+         
+         
