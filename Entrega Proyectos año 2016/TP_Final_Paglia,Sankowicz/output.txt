@@ -1,0 +1,44 @@
+/* 
+ --ROBOTICA 2016--
+ JAVIER SANKOWICZ-LUCAS PAGLIA
+*/
+
+
+#include <DCMotor.h>
+DCMotor motor1(M1_EN, M1_D0, M1_D1);
+DCMotor motor0(M0_EN, M0_D0, M0_D1);
+void setup() {
+
+//movimiento lineal
+motor0.setSpeed(-90);
+motor1.setSpeed(90);
+delay(1000);
+
+//espera n milisegundos
+motor0.setSpeed(0);
+motor1.setSpeed(0);
+delay(500);
+
+//movimiento circular
+motor0.setSpeed(-90);
+motor1.setSpeed(50);
+delay(1000);
+
+//movimiento circular
+motor1.setSpeed(90);
+motor0.setSpeed(-50);
+delay(1000);
+
+//movimiento circular
+motor0.setSpeed(-90);
+motor1.setSpeed(0)
+delay(1000);
+}
+motor0.setSpeed(-0.0);
+motor1.setSpeed(0.0);
+
+//--fin del programa--
+
+void loop() {
+}
+

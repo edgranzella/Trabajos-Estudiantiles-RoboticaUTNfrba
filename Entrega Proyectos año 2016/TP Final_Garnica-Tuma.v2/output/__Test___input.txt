@@ -1,0 +1,4 @@
+init
+movel(50,100)
+moveder(50,50)
+end

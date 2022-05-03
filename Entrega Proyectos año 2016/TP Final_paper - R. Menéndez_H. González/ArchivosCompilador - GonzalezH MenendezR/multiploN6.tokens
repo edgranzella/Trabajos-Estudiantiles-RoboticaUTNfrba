@@ -1,0 +1,11 @@
+MOVE=4
+COMA=5
+INT=6
+ID=7
+LEFT_PARENT=8
+RIGHT_PARENT=9
+COMMENT=10
+WS=11
+'mover_ocho'=4
+'('=8
+')'=9

@@ -1,0 +1,32 @@
+Propiedades físicas de Ensamblaje ( Assembly Configuration - Predeterminado )
+
+Sistema de coordenadas de salida: Sistema de coordenadas1
+
+Masa = 298.96 gramos
+
+Volumen = 161081.12  milímetros cúbicos
+
+Área de superficie = 62327.99  milímetros cuadrados
+
+Centro de masa: ( milímetros )
+	X = 9.55
+	Y = 0.00
+	Z = 9.23
+
+Ejes principales de inercia y momentos principales de inercia: ( gramos *  milímetros cuadrados )
+Medido desde el centro de masa.
+	 Ix = (0.00, -1.00, 0.00)   	Px = 123330.32
+	 Iy = (0.75, 0.00, 0.66)   	Py = 631139.69
+	 Iz = (-0.66, -0.00, 0.75)   	Pz = 676247.46
+
+Momentos de inercia: ( gramos *  milímetros cuadrados )
+Obtenidos en el centro de masa y alineados con el sistema de coordenadas de resultados.
+	Lxx = 651006.36	Lxy = -87.46	Lxz = 22393.23
+	Lyx = -87.46	Lyy = 123330.34	Lyz = -12.36
+	Lzx = 22393.23	Lzy = -12.36	Lzz = 656380.78
+
+Momentos de inercia: ( gramos *  milímetros cuadrados)
+Medido desde el sistema de coordenadas de salida.
+	Ixx = 676463.60	Ixy = -77.40	Ixz = 48742.35
+	Iyx = -77.40	Iyy = 176059.83	Iyz = -2.64
+	Izx = 48742.35	Izy = -2.64	Izz = 683653.03
